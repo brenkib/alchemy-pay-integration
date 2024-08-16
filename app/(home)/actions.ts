@@ -6,8 +6,9 @@ const TEST_API = "https://openapi-test.alchemypay.org";
 const APP_SECRET = process.env.APP_SECRET as string;
 const APP_ID = process.env.APP_ID as string;
 
-export const getAlchemyPayToken = async (email?: string): Promise<string> => {
+export const getAlchemyPayToken = async (): Promise<string> => {
     const timestamp = Date.now().toString();
+    const email = process.env.EMAIL;
     const map = {
         appid: APP_ID,
         timestamp: timestamp,
